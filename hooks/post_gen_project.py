@@ -123,8 +123,7 @@ def main():
     if "{{ cookiecutter.add_vscode_config }}".lower() == "n":
         remove_vscode_files()
 
-    if "{{ cookiecutter.git_repo_url }}":
-        add_remote()
+    add_remote()
 
     if "{{ cookiecutter.ci_provider }}".lower() != "github":
         remove_github_files()
