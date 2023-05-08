@@ -57,7 +57,6 @@ class Plugin:
             added to self.actions list.
         :rtype: QAction
         """
-
         icon = QIcon(icon_path)
         action = QAction(icon, text, parent)
         # noinspection PyUnresolvedReferences
@@ -92,15 +91,15 @@ class Plugin:
         )
 
     def onClosePlugin(self) -> None:  # noqa: N802
-        """Cleanup necessary items here when plugin dockwidget is closed"""
+        """Cleanup necessary items here when plugin dockwidget is closed."""
         pass
 
     def unload(self) -> None:
-        """Removes the plugin menu item and icon from QGIS GUI."""
+        """Remove the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
             iface.removePluginMenu(Plugin.name, action)
             iface.removeToolBarIcon(action)
 
     def run(self) -> None:
-        """Run method that performs all the real work"""
+        """Run method that performs all the real work."""
         QgsMessageLog.logMessage("Hello QGIS plugin", tag=Plugin.name)
