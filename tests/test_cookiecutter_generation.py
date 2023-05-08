@@ -1,3 +1,4 @@
+# pylint: disable=redefined-outer-name
 import copy
 import subprocess  # nosec: B404
 import sys
