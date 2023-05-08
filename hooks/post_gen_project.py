@@ -3,6 +3,7 @@ import os
 import shutil
 import subprocess  # nosec: B404
 import sys
+from dataclasses import dataclass
 from typing import List, Union
 
 logger = logging.getLogger(__name__)
@@ -14,6 +15,7 @@ QGIS_PLUGIN_TOOLS_SPECIFIC_FILES = (
 )
 
 
+@dataclass(init=False, repr=False, eq=False)
 class Colors:
     WARNING = "\033[93m"
     FAIL = "\033[91m"
