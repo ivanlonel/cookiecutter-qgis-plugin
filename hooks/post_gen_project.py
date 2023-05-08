@@ -26,7 +26,7 @@ def warn(message: str) -> None:
 
 def _run(args: List[str]) -> None:
     try:
-        logger.info(f'Running command "{" ".join(args)}"')
+        logger.info('Running command "%s"', " ".join(args))
         subprocess.run(  # nosec: B603
             args,
             capture_output=True,
