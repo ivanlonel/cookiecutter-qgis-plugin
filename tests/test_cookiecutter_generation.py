@@ -29,7 +29,7 @@ def session_context():
     }
 
 
-@pytest.fixture
+@pytest.fixture()
 def context(session_context: Dict[str, str]):
     yield copy.deepcopy(session_context)
 
