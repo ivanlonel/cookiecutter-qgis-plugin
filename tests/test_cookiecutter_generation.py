@@ -7,7 +7,6 @@ import pytest
 from cookiecutter.exceptions import FailedHookException, UndefinedVariableInTemplate
 
 if TYPE_CHECKING:
-    from pytest import FixtureRequest
     from pytest_cookies.plugin import Cookies, Result
 
 LONG_PACKAGE_NAME = "hyperextralongpackagenametomessupimportformatting"
@@ -60,7 +59,7 @@ def _fixture_id(ctx: Dict[str, str]) -> str:
 def baked_project(
     cookies_session: "Cookies",
     session_context: Dict[str, str],
-    request: "FixtureRequest",
+    request: "pytest.FixtureRequest",
 ) -> "Result":
     context_override = request.param
     baked_project = cookies_session.bake(
