@@ -1,0 +1,35 @@
+{
+  "files.associations": {
+    "metadata.txt": "ini",
+  },
+
+  "python.defaultInterpreterPath": ".venv\\Scripts\\python.exe",
+  "python.languageServer": "Jedi",
+
+  // Linting with bandit, flake8, mypy, pylint
+  "python.linting.enabled": true,
+  "python.linting.banditArgs": [
+    "-c",
+    "pyproject.toml",
+  ],
+  "python.linting.banditEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pylintEnabled": true,
+
+  // Formatting with black and isort
+  "python.formatting.provider": "black",
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true,
+    },
+  },
+
+  // Testing with pytest
+  "python.testing.pytestArgs": [
+    "test",
+  ],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+}
