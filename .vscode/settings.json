@@ -1,15 +1,36 @@
 {
-    "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true,
-    "python.formatting.provider": "black",
+  "files.associations": {
+    "metadata.txt": "ini",
+  },
+  "files.insertFinalNewline": true,
+
+  // Linting with bandit, flake8, mypy, pylint
+  "python.linting.enabled": true,
+  "python.linting.ignorePatterns": [
+    "{{cookiecutter.project_directory}}/**/*.py",
+  ],
+  "python.linting.banditArgs": [
+    "-c",
+    "pyproject.toml",
+  ],
+  "python.linting.banditEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pylintEnabled": true,
+
+  // Formatting with black and isort
+  "python.formatting.provider": "black",
+  "[python]": {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": true,
+      "source.organizeImports": true,
     },
-    "python.testing.pytestArgs": [
-        "tests"
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "files.insertFinalNewline": true
+  },
+
+  // Testing with pytest
+  "python.testing.pytestArgs": [
+    "tests",
+  ],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
 }
