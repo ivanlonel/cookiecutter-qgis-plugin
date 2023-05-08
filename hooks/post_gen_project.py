@@ -8,6 +8,7 @@ from typing import List, Union
 
 logger = logging.getLogger(__name__)
 
+ADD_VSCODE_CONFIG = "{{ cookiecutter.add_vscode_config }}".lower() != "n"
 ALL_TEMP_FOLDERS = ("licenses", "plugin_templates")
 QGIS_PLUGIN_TOOLS_SPECIFIC_FILES = (
     "{{cookiecutter.plugin_package}}/build.py",
@@ -84,15 +85,21 @@ def write_dependencies() -> None:
                 "--upgrade",
                 "-o",
                 "requirements-dev.txt",
-                "requirements-dev.in",
-            ],
+            ]
+            + (
+                ["--all-extras"]
+                if ADD_VSCODE_CONFIG
+                else ["--extra=dev", "--extra=test"]
+            ),
             capture_output=True,
             check=True,
         )
     except subprocess.CalledProcessError:
         warn(
             "Updating dependecies failed. Do you have the pip-tools installed? "
-            'Run "pip-compile requirements-dev.in" manually in your plugin folder.'
+            "Run 'pip-compile -o requirements-dev.txt "
+            + ("--all-extras" if ADD_VSCODE_CONFIG else "--extra=dev --extra=test")
+            + " manually in your plugin folder."
         )
 
 
@@ -121,7 +128,7 @@ def main() -> None:
     else:
         remove_plugin_tools()
 
-    if "{{ cookiecutter.add_vscode_config }}".lower() == "n":
+    if not ADD_VSCODE_CONFIG:
         remove_vscode_files()
 
     if "{{ cookiecutter.git_repo_url }}":  # pylint: disable=using-constant-test

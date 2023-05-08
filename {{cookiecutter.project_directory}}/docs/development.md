@@ -57,7 +57,11 @@ For example to disable typing, remove mypy hook and flake8-annotations from the 
 
 1. Activate the virtual environment.
 2. `pip install pip-tools`
-3. `pip-compile --upgrade requirements-dev.in`
+{%- if cookiecutter.use_qgis_plugin_tools|lower == "n" -%}
+3. `pip-compile -o requirements-dev.txt --extra=dev --extra=test --upgrade`
+{%- else -%}
+3. `pip-compile -o requirements-dev.txt --all-extras --upgrade`
+{%- endif -%}
 4. `pip install -r requirements-dev.txt` or `pip-sync requirements-dev.txt`
 
 ## Adding or editing  source files
