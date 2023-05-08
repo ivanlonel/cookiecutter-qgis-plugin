@@ -3,7 +3,7 @@ import os
 import shutil
 import subprocess
 import sys
-from typing import List
+from typing import List, Union
 
 logger = logging.getLogger(__name__)
 
@@ -36,21 +36,21 @@ def _run(args: List[str]) -> None:
         warn(f'Running command "{" ".join(args)}" failed.')
 
 
-def _remove_dir(dirpath):
+def _remove_dir(dirpath: Union[str, bytes, os.PathLike]) -> None:
     if os.path.exists(dirpath):
         shutil.rmtree(dirpath)
 
 
-def _remove_file(filepath):
+def _remove_file(filepath: Union[str, bytes, os.PathLike]) -> None:
     if os.path.exists(filepath):
         os.remove(filepath)
 
 
-def git_init():
+def git_init() -> None:
     _run(["git", "init"])
 
 
-def add_plugin_tools():
+def add_plugin_tools() -> None:
     _run(
         [
             "git",
@@ -62,16 +62,16 @@ def add_plugin_tools():
     )
 
 
-def remove_plugin_tools():
+def remove_plugin_tools() -> None:
     for file in QGIS_PLUGIN_TOOLS_SPECIFIC_FILES:
         _remove_file(file)
 
 
-def add_remote():
+def add_remote() -> None:
     _run(["git", "remote", "add", "origin", "{{cookiecutter.git_repo_url}}"])
 
 
-def write_dependencies():
+def write_dependencies() -> None:
     try:
         subprocess.run(
             [
@@ -94,25 +94,25 @@ def write_dependencies():
         )
 
 
-def remove_temp_folders():
+def remove_temp_folders() -> None:
     for folder in ALL_TEMP_FOLDERS:
         _remove_dir(folder)
 
 
-def remove_vscode_files():
+def remove_vscode_files() -> None:
     _remove_dir(".vscode")
     _remove_file("{{cookiecutter.project_directory}}.code-workspace")
 
 
-def remove_github_files():
+def remove_github_files() -> None:
     _remove_dir(".github")
 
 
-def remove_gitlab_files():
+def remove_gitlab_files() -> None:
     _remove_file(".gitlab-ci.yml")
 
 
-def main():
+def main() -> None:
     git_init()
 
     if "{{ cookiecutter.use_qgis_plugin_tools }}".lower() != "n":

@@ -1,7 +1,7 @@
 import sys
 
 
-def check_package_name():
+def check_package_name() -> None:
     package_name = "{{ cookiecutter.plugin_package }}"
 
     if not package_name.isidentifier():
@@ -14,14 +14,14 @@ def check_package_name():
         sys.exit(1)
 
 
-def check_license():
+def check_license() -> None:
     license = "{{ cookiecutter.license }}".lower()
     if license not in ("gpl2", "gpl3"):
         print("QGIS plugins must comply with the GPL version 2 or greater license.")
         sys.exit(1)
 
 
-def main():
+def main() -> None:
     check_package_name()
     check_license()
 
