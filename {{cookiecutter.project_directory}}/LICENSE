@@ -1,5 +1,5 @@
 {%- if cookiecutter.license == "GPL2" -%}
-{%- include 'licenses/GPL2.txt' %}
+{%- include 'licenses/GPL2.txt' -%}
 {%- elif cookiecutter.license == "GPL3" -%}
-{%- include 'licenses/GPL3.txt' %}
-{% endif -%}
+{%- include 'licenses/GPL3.txt' -%}
+{%- endif -%}
