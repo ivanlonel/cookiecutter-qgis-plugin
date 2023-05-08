@@ -1,7 +1,7 @@
 import logging
 import os
 import shutil
-import subprocess
+import subprocess  # nosec: B404
 import sys
 from typing import List, Union
 
@@ -27,7 +27,7 @@ def warn(message: str) -> None:
 def _run(args: List[str]) -> None:
     try:
         logger.info(f'Running command "{" ".join(args)}"')
-        subprocess.run(
+        subprocess.run(  # nosec: B603
             args,
             capture_output=True,
             check=True,
@@ -73,7 +73,7 @@ def add_remote() -> None:
 
 def write_dependencies() -> None:
     try:
-        subprocess.run(
+        subprocess.run(  # nosec: B603
             [
                 sys.executable,
                 "-m",
