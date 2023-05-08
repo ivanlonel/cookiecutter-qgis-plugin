@@ -1,3 +1,4 @@
+import logging
 from typing import Callable, List, Optional
 
 from qgis.PyQt.QtCore import QCoreApplication, QTranslator
@@ -127,4 +128,4 @@ class Plugin:
 
     def run(self) -> None:
         """Run method that performs all the real work"""
-        print("Hello QGIS plugin")
+        logging.getLogger(Plugin.name).info("Hello QGIS plugin")

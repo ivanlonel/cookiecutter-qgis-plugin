@@ -1,5 +1,6 @@
 from typing import Callable, List, Optional
 
+from qgis.core import QgsMessageLog
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QWidget
 from qgis.utils import iface
@@ -102,4 +103,4 @@ class Plugin:
 
     def run(self) -> None:
         """Run method that performs all the real work"""
-        print("Hello QGIS plugin")
+        QgsMessageLog.logMessage("Hello QGIS plugin", tag=Plugin.name)
