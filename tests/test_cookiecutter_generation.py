@@ -76,7 +76,6 @@ def baked_project(
 
 def test_project_generation(baked_project: "Result"):
     """Test that project is generated and fully rendered."""
-
     assert baked_project.project_path.name == baked_project.context["project_directory"]
     assert baked_project.project_path.is_dir()
 
@@ -99,7 +98,6 @@ def run_cli_command(command: str, cwd: str):
 
 def test_flake8_passes(baked_project: "Result"):
     """Generated project should pass flake8."""
-
     if baked_project.context["plugin_package"] == LONG_PACKAGE_NAME:
         pytest.xfail(
             reason="long package names makes imports to be reformatted. TODO: fix"
