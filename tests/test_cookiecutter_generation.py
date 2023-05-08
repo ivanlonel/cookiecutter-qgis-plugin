@@ -52,7 +52,7 @@ UNSUPPORTED_COMBINATIONS = [
 
 
 def _fixture_id(ctx: Dict[str, str]) -> str:
-    """Helper to get a user friendly test name from the parametrized context."""
+    """Get a user friendly test name from the parametrized context."""
     return "-".join(f"{key}:{value}" for key, value in ctx.items())
 
 
