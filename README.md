@@ -44,7 +44,7 @@ $ pip install pip-tools
 # edit requirements.in
 
 # compile requirements.in to requirements.txt
-$ pip-compile --resolver=backtracking
+$ pip-compile --extra=dev --extra=test -o requirements.txt --resolver=backtracking
 # sync dependencies
 $ pip-sync
 
