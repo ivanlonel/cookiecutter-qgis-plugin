@@ -5,11 +5,9 @@ from typing import List
 
 from qgis_plugin_tools.infrastructure.plugin_maker import PluginMaker
 
-"""
 #################################################
 # Edit the following to match the plugin
 #################################################
-"""
 
 py_files = [
     fil
