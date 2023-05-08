@@ -30,7 +30,7 @@ def session_context():
 
 @pytest.fixture()
 def context(session_context: Dict[str, str]):
-    yield copy.deepcopy(session_context)
+    return copy.deepcopy(session_context)
 
 
 SUPPORTED_COMBINATIONS = [
