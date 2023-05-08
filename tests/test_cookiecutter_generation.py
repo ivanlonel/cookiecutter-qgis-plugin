@@ -1,5 +1,5 @@
 import copy
-import subprocess
+import subprocess  # nosec: B404
 import sys
 from typing import TYPE_CHECKING, Dict
 
@@ -84,7 +84,7 @@ def test_project_generation(baked_project: "Result"):
 def run_cli_command(command: str, cwd: str):
     cmd = command.split()
     try:
-        subprocess.check_output(
+        subprocess.check_output(  # nosec: B603
             cmd,
             cwd=cwd,
             timeout=20,
