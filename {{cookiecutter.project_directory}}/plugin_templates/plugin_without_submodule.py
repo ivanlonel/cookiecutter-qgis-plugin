@@ -92,7 +92,6 @@ class Plugin:
 
     def onClosePlugin(self) -> None:  # noqa: N802
         """Cleanup necessary items here when plugin dockwidget is closed."""
-        pass
 
     def unload(self) -> None:
         """Remove the plugin menu item and icon from QGIS GUI."""
