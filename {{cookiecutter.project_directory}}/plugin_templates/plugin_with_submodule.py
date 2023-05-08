@@ -27,7 +27,7 @@ class Plugin:
         setup_logger(Plugin.name)
 
         # initialize locale
-        locale, file_path = setup_translation()
+        _, file_path = setup_translation()
         if file_path:
             self.translator = QTranslator()
             self.translator.load(file_path)
