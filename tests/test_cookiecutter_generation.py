@@ -88,7 +88,7 @@ def run_cli_command(command: str, cwd: str):
             cmd,
             cwd=cwd,
             timeout=20,
-            universal_newlines=True,
+            text=True,
             stderr=subprocess.STDOUT,
         )
     except subprocess.CalledProcessError as exc:
