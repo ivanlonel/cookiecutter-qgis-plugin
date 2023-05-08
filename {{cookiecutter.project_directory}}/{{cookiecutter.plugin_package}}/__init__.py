@@ -17,7 +17,9 @@ if TYPE_CHECKING:
     from {{cookiecutter.plugin_package}}.plugin import Plugin
 
 
+# pylint: disable-next=unused-argument
 def classFactory(iface: "QgisInterface") -> "Plugin":  # noqa: N802
+    # pylint: disable-next=import-outside-toplevel
     from {{cookiecutter.plugin_package}}.plugin import Plugin
 
     return Plugin()
