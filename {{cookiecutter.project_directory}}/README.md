@@ -1,4 +1,5 @@
 # {{cookiecutter.plugin_name}}
+
 {% if cookiecutter.git_repo_hosting == "github.com" -%}
 ![tests](https://github.com/{{cookiecutter.git_repo_organization}}/{{cookiecutter.project_directory}}/workflows/Tests/badge.svg)
 [![codecov.io](https://codecov.io/github/{{cookiecutter.git_repo_organization}}/{{cookiecutter.project_directory}}/coverage.svg?branch=main)](https://codecov.io/github/{{cookiecutter.git_repo_organization}}/{{cookiecutter.project_directory}}?branch=main)
@@ -18,11 +19,11 @@
 Refer to [development](docs/development.md) for developing this QGIS3 plugin.
 
 ## License
+
 This plugin is licenced with
 {%- if cookiecutter.license == "GPL2" -%}
 [GNU General Public License, version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 {%- elif cookiecutter.license == "GPL3" -%}
 [GNU General Public License, version 3](https://www.gnu.org/licenses/gpl-3.0.html)
 {% endif %}
-
 See [LICENSE](LICENSE) for more information.
