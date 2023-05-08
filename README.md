@@ -1,10 +1,10 @@
 # Cookiecutter QGIS Plugin
+
 ![CI](https://github.com/GispoCoding/cookiecutter-qgis-plugin/workflows/CI/badge.svg)
 ![License](https://img.shields.io/github/license/GispoCoding/cookiecutter-qgis-plugin)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-
 
 Powered by Cookiecutter, Cookiecutter QGIS Plugin is a framework for making the start of QGIS plugin development easy.
 
@@ -13,11 +13,13 @@ Powered by Cookiecutter, Cookiecutter QGIS Plugin is a framework for making the 
 Python >= 3.8 is required.
 
 First, get Cookiecutter and pip-tools.
+
 ```shell
 $ pip install --user cookiecutter pip-tools
 ```
 
 Run cookiecutter giving this template repository as an argument. Run the command in the parent folder where you want the project folder to be created.
+
 ```shell
 $ cookiecutter https://github.com/GispoCoding/cookiecutter-qgis-plugin
 ```
@@ -35,6 +37,7 @@ $ pip install -r requirements.txt
 ```
 
 ### Update dependencies
+
 Dependencies are pinned to a exact versions so that tests are run in a reproduceable environment also on CI.
 
 ```bash
