@@ -104,7 +104,7 @@ class Plugin:
 
         return action
 
-    def initGui(self) -> None:  # noqa N802
+    def initGui(self) -> None:  # noqa: N802
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
         self.add_action(
             "",
@@ -114,7 +114,7 @@ class Plugin:
             add_to_toolbar=False,
         )
 
-    def onClosePlugin(self) -> None:  # noqa N802
+    def onClosePlugin(self) -> None:  # noqa: N802
         """Cleanup necessary items here when plugin dockwidget is closed"""
         pass
 
