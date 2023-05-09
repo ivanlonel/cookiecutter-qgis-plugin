@@ -105,6 +105,39 @@ def test_flake8_passes(baked_project: "Result"):
     run_cli_command("flake8", cwd=str(baked_project.project_path))
 
 
+def test_bandit_passes(baked_project: "Result"):
+    """Generated project should pass bandit."""
+    if baked_project.context["plugin_package"] == LONG_PACKAGE_NAME:
+        pytest.xfail(
+            reason="long package names makes imports to be reformatted. TODO: fix"
+        )
+    run_cli_command("bandit -c pyproject.toml .", cwd=str(baked_project.project_path))
+
+
+def test_mypy_passes(baked_project: "Result"):
+    """Generated project should pass mypy."""
+    if baked_project.context["plugin_package"] == LONG_PACKAGE_NAME:
+        pytest.xfail(
+            reason="long package names makes imports to be reformatted. TODO: fix"
+        )
+    run_cli_command(
+        "mypy --config-file=pyproject.toml --ignore-missing-imports .",
+        cwd=str(baked_project.project_path),
+    )
+
+
+def test_pylint_passes(baked_project: "Result"):
+    """Generated project should pass pylint."""
+    if baked_project.context["plugin_package"] == LONG_PACKAGE_NAME:
+        pytest.xfail(
+            reason="long package names makes imports to be reformatted. TODO: fix"
+        )
+    run_cli_command(
+        f"pylint --rcfile=pyproject.toml ./{baked_project.context['plugin_package']}",
+        cwd=str(baked_project.project_path),
+    )
+
+
 def test_black_passes(baked_project: "Result"):
     """Generated project should pass black."""
     if baked_project.context["plugin_package"] == LONG_PACKAGE_NAME:
