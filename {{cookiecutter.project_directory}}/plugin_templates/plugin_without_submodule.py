@@ -9,7 +9,7 @@ from qgis.utils import iface
 class Plugin:
     """QGIS Plugin Implementation."""
 
-    name = "{{cookiecutter.project_directory}}"
+    name = "{{cookiecutter.plugin_name|replace(' ', '')}}"
 
     def __init__(self) -> None:
         self.actions: List[QAction] = []
