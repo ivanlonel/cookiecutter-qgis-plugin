@@ -1,6 +1,8 @@
+{%- if cookiecutter.use_qgis_plugin_tools|lower != "n" -%}
 import os
+{% endif -%}
 from typing import TYPE_CHECKING
-{% if cookiecutter.use_qgis_plugin_tools %}
+{% if cookiecutter.use_qgis_plugin_tools|lower != "n" %}
 from {{cookiecutter.plugin_package}}.qgis_plugin_tools.infrastructure.debugging import (  # noqa: F401
     setup_debugpy,
     setup_ptvsd,
