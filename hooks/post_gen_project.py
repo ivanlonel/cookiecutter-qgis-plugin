@@ -10,10 +10,7 @@ logger = logging.getLogger(__name__)
 
 ADD_VSCODE_CONFIG = "{{ cookiecutter.add_vscode_config }}".lower() != "n"
 ALL_TEMP_FOLDERS = ("licenses", "plugin_templates")
-QGIS_PLUGIN_TOOLS_SPECIFIC_FILES = (
-    "{{cookiecutter.plugin_package}}/build.py",
-    "test/test_plugin.py",
-)
+QGIS_PLUGIN_TOOLS_SPECIFIC_FILES = ("{{cookiecutter.plugin_package}}/build.py",)
 
 
 @dataclass(init=False, repr=False, eq=False)
