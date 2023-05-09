@@ -49,8 +49,10 @@ def _remove_file(filepath: Union[str, bytes, os.PathLike]) -> None:
         os.remove(filepath)
 
 
-def git_init() -> None:
+def git_init(rename_branch_to_main: bool = True) -> None:
     _run(["git", "init"])
+    if rename_branch_to_main:
+        _run(["git", "branch", "-M", "main"])
 
 
 def add_plugin_tools() -> None:
