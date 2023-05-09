@@ -58,7 +58,9 @@ def add_plugin_tools() -> None:
             "git",
             "submodule",
             "add",
-            "https://github.com/GispoCoding/qgis_plugin_tools",
+            "-b",
+            "refactoring_py3.9",
+            "https://github.com/ivanlonel/qgis_plugin_tools",
             "{{cookiecutter.plugin_package}}/qgis_plugin_tools",
         ]
     )
