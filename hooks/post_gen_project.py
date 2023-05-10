@@ -130,8 +130,7 @@ def main() -> None:
     if not ADD_VSCODE_CONFIG:
         remove_vscode_files()
 
-    if "{{ cookiecutter.git_repo_url }}":  # pylint: disable=using-constant-test
-        add_remote()
+    add_remote()
 
     if "{{ cookiecutter.ci_provider }}".lower() != "github":
         remove_github_files()

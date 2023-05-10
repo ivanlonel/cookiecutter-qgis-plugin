@@ -161,7 +161,7 @@ def test_invalid_package_name(
     cookies: "Cookies", context: Dict[str, str], package_name: str
 ):
     """Invalid package name should fail in pre-generation hook."""
-    context.update({"plugin_package": package_name})
+    context["plugin_package"] = package_name
 
     result = cookies.bake(extra_context=context)
 
@@ -174,7 +174,7 @@ def test_error_if_incompatible(
     cookies: "Cookies", context: Dict[str, str], invalid_context: Dict[str, str]
 ):
     """It should not generate project an incompatible combination is selected."""
-    context.update(invalid_context)
+    context |= invalid_context
     result = cookies.bake(extra_context=context)
 
     assert result.exit_code != 0
